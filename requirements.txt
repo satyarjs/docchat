@@ -1,0 +1,8 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+pypdf>=4.0
+sentence-transformers>=3.0
+numpy>=1.26
+openai>=1.40
+python-dotenv>=1.0
+streamlit>=1.35
