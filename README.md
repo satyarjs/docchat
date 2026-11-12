@@ -2,6 +2,8 @@
 
 ![tests](https://github.com/satyarjs/docchat/actions/workflows/tests.yml/badge.svg)
 
+   ![DocChat answering a question with a cited source](docs/screenshot.png)
+
 Ask questions about your own PDFs and text files and get answers **with page citations**, powered by a technique called **Retrieval-Augmented Generation (RAG)**.
 
 This project is deliberately built **without** LangChain or LlamaIndex. Every step (reading files, splitting text, turning text into vectors, searching, prompting the LLM) is a small, readable Python file, so you can see exactly what happens under the hood.
