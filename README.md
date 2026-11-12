@@ -425,7 +425,7 @@ response = client.chat.completions.create(
     model=settings.llm_model,
     messages=messages,
     temperature=0.2,
-    max_tokens=512,
+    max_tokens=2048,
 )
 answer = response.choices[0].message.content
 ```
@@ -440,7 +440,7 @@ Content-Type: application/json
 {"model": "openai/gpt-oss-20b",
  "messages": [{"role": "system", "content": "..."}, {"role": "user", "content": "..."}],
  "temperature": 0.2,
- "max_tokens": 512}
+ "max_tokens": 2048}
 ```
 
 …and the JSON response contains `choices[0].message.content` (the answer) and `usage` (token counts).
@@ -452,7 +452,7 @@ Content-Type: application/json
 | Setting | Value | Meaning |
 | --- | --- | --- |
 | `temperature` | `0.2` | Randomness of token choice. Low = focused and repeatable, which is what you want for factual Q&A. |
-| `max_tokens` | `512` | Upper limit on answer length (and cost). |
+| `max_tokens` | `2048` | Upper limit on answer length (and cost). |
 | Context window | model-dependent | Max tokens of prompt + answer. Our prompt is ~1,000 tokens (4 chunks × ~200 + rules), which fits even small local models. Ollama's default context is small (2048 tokens in many versions), another reason to keep `TOP_K` modest. |
 
 **Friendly errors:** `llm.py` catches the common failures and turns them into plain-English messages: connection refused ("Is Ollama running? Check LLM_BASE_URL"), 401 ("Check LLM_API_KEY"), 404 / model not found ("Check LLM_MODEL against your provider's model list") and rate limits ("Wait a moment and try again").

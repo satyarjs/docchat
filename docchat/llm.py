@@ -6,7 +6,7 @@ package and just change `base_url`. Under the hood it is one HTTP request:
 
   POST {base_url}/chat/completions
   Authorization: Bearer {api_key}
-  {"model": "...", "messages": [...], "temperature": 0.2, "max_tokens": 512}
+  {"model": "...", "messages": [...], "temperature": 0.2, "max_tokens": 2048}
 
 The answer comes back in response.choices[0].message.content.
 """
